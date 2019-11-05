@@ -64,10 +64,15 @@ def save_image(image, filename):
 def main():
     clear_screen()
     print('welcome to the photo editor 📷')
+    print('\topening image...')
     image = open_image(ORIGINAL_IMAGE_FILENAME)
+    print('\tupdating image...')
     new_image = change_image(image)
+    print('\tdisplaying new image...')
     new_image.show()  # show the new image
+    print('\tsaving image...')
     save_image(new_image, UPDATED_IMAGE_FILENAME)
+    print('thank you and have a nice day!')
 
 
 if __name__ == '__main__':
