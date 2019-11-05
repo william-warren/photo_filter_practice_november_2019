@@ -1,6 +1,20 @@
+import os
 from PIL import Image
 
+
 ORIGINAL_IMAGE_FILENAME = './assets/domi.jpg'
+
+
+def clear_screen():
+    ''' () -> None
+    clears the terminal screen for the user.
+    determines what type of os is being used
+    and clears the screen accordingly
+    '''
+    if os.name == 'nt':
+        os.system('cls')  # windows
+    else:
+        os.system('clear')  # linux / mac
 
 
 def open_image(filename):
@@ -19,6 +33,8 @@ def open_image(filename):
 
 
 def main():
+    clear_screen()
+    print('welcome to the photo editor 📷')
     image = open_image(ORIGINAL_IMAGE_FILENAME)
 
 
