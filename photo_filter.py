@@ -3,6 +3,7 @@ from PIL import Image
 
 
 ORIGINAL_IMAGE_FILENAME = './assets/domi.jpg'
+UPDATED_IMAGE_FILENAME = './assets/filtered_image.jpg'
 
 
 def clear_screen():
@@ -32,10 +33,27 @@ def open_image(filename):
     return image
 
 
+def change_image(image):
+    ''' (PIL Image object) -> PIL Image object
+    deconstructs the current image object into a list of RGB tuples
+    and modifies the data to create a new image
+    '''
+    height, width = image.size  # get the current image size
+    rgb_list = list(image.getdata())  # create a list of rgb tuples
+    # modify the rgb data here!
+
+    # create the new image
+    new_image = Image.new('RGB', (height, width))
+    new_image.putdata(rgb_list)
+    return new_image
+
+
 def main():
     clear_screen()
     print('welcome to the photo editor 📷')
     image = open_image(ORIGINAL_IMAGE_FILENAME)
+    new_image = change_image(image)
+    new_image.show()  # show the new image
 
 
 if __name__ == '__main__':
