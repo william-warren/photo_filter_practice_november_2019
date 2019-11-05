@@ -48,12 +48,26 @@ def change_image(image):
     return new_image
 
 
+def save_image(image, filename):
+    # this function is likely unnecessary,
+    # but it is used as an example on
+    # how file I/O should be handled in other
+    # or similar applications
+    ''' (PIL Image object, str filename) -> None
+    saves the PIL Image object on the machine
+    with the string filename
+    '''
+    image.save(filename)
+    return None
+
+
 def main():
     clear_screen()
     print('welcome to the photo editor 📷')
     image = open_image(ORIGINAL_IMAGE_FILENAME)
     new_image = change_image(image)
     new_image.show()  # show the new image
+    save_image(new_image, UPDATED_IMAGE_FILENAME)
 
 
 if __name__ == '__main__':
